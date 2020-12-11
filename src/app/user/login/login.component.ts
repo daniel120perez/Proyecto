@@ -37,7 +37,12 @@ export class LoginComponent implements OnInit {
       });
     } catch (error) {
     }
+  }
 
+  async handleLoginGoogle(){
+    this.auth.LoginReqGoogle().subscribe(data =>{
+      console.log('Component Data : ',data);
+    });
   }
 
 }

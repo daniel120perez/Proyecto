@@ -10,14 +10,14 @@ export class WorkerService {
 
   constructor(private conn: HttpClient) { }
 
-  private API = 'http://127.0.0.1:8000/api/v1';
+  private API = 'http://workers-pablo.ddns.net/api/v1';
 
   GET(): Observable<Worker[]> {
-    return this.conn.get<Worker[]>('http://127.0.0.1:8000/api/v1/Workers/');
+    return this.conn.get<Worker[]>('http://workers-pablo.ddns.net/api/v1/Workers/');
   }
 
   POST(worker:Worker): Observable<Worker> {
-    return this.conn.post<Worker>('http://127.0.0.1:8000/api/v1/Workers/',worker);
+    return this.conn.post<Worker>('http://workers-pablo.ddns.net/api/v1/Workers/',worker);
   }
 
   PUT(worker:Worker,id): Observable<Worker>{
@@ -25,7 +25,7 @@ export class WorkerService {
   }
 
   DELETE(id): Observable<{}>{
-    return this.conn.delete(`http://127.0.0.1:8000/api/v1/Workers/${id}/`);
+    return this.conn.delete(`http://workers-pablo.ddns.net/api/v1/Workers/${id}/`);
   }
 
 }

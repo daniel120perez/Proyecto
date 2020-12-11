@@ -24,7 +24,7 @@
                         <input type="checkbox">  Remember me
                     </label>
                     <button type="submit" class="btn btn-primary btn-large btn-block" >Login</button>
-                    <button type="button" class="btn btn-warning btn-large btn-block">Login With Google</button>
+                    <button type="button" (click)="handleLoginGoogle()" class="btn btn-warning btn-large btn-block">Login With Google</button>
                 </form>
                 <div>
                     <p class="text-center mt-3 linked" > Don't have an Account? <a [routerLink]="['/register']">Register Here!</a></p>
