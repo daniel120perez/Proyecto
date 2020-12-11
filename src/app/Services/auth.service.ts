@@ -18,12 +18,12 @@ export class AuthService {
 
 
 
-  private API = 'http://100.25.182.40/api/v1/auth';
+  private API = 'http://34.238.135.150/api/v1/auth';
 
 
   LoginReq(user: Account): Observable<any> {
     try {
-      return this.conn.post('http://100.25.182.40/api/v1/auth/login/', user).pipe(tap(
+      return this.conn.post('http://34.238.135.150/api/v1/auth/login/', user).pipe(tap(
         (res: any) => {
           if (res) {
             this.encriptar(user);
@@ -41,7 +41,7 @@ export class AuthService {
 
   RegisterRequest(user: Account): Observable<any> {
     try {
-      return this.conn.post('http://100.25.182.40/api/v1/auth/register/', user).pipe(tap(
+      return this.conn.post('http://34.238.135.150/api/v1/auth/register/', user).pipe(tap(
         (res: any) => {
           if (res) {
             this.encriptar(user);
@@ -59,7 +59,7 @@ export class AuthService {
 
   LoginReqGoogle(){
     try {
-      return this.conn.get('http://100.25.182.40/api/v1/auth/accounts/login/').pipe(tap(
+      return this.conn.get('http://34.238.135.150/api/v1/auth/accounts/login/').pipe(tap(
         (res: any) => {
           if (res) {
             console.log(res);
@@ -76,7 +76,7 @@ export class AuthService {
     this.account = null;
     localStorage.removeItem("Account_Private_Key");
     localStorage.removeItem("User_Private_Account");
-    return this.conn.post('http://100.25.182.40/api/v1/auth/logout/',{})
+    return this.conn.post('http://34.238.135.150/api/v1/auth/logout/',{})
   }
 
   encriptar(user: Account) {
