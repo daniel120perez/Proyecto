@@ -33,6 +33,7 @@ export class RegisterComponent implements OnInit {
       this.newAcc = {} = await this.CuentaRegistro.value;
       let a = this.auth.RegisterRequest(this.newAcc).subscribe(async data =>{
         await this.router.navigate(['/home']);
+        window.location.reload();
       });
     } catch (error) {
     }
