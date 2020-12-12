@@ -1,0 +1,133 @@
+<div class="container-lg pt-5" *ngIf=" user; else LandingPage">
+  <div class="row">
+
+    <!-- Formulario Agregar -->
+    <div class="col-md-3">
+      <form [formGroup]="newWorker" (ngSubmit)="PostWorker()" class="form">
+        <div class="form-group">
+          <label for="">Nombre</label>
+          <input formControlName="name" class="form-control" type="text" aria-describedby="name">
+        </div>
+        <div class="form-group">
+          <label for="">Edad</label>
+          <input formControlName="age" class="form-control" type="text" aria-describedby="age">
+        </div>
+        <div class="form-group">
+          <label for="">Email</label>
+          <input formControlName="email" class="form-control" type="email" aria-describedby="email">
+        </div>
+        <button type="submit" class="btn btn-primary btn-large btn-block">Agregar</button>
+      </form>
+    </div>
+
+
+    <!-- Tabla -->
+    <div class="col-md-9">
+      <div class="row col-md-12 col-md-offset-2 custyle bg1">
+        <table class="hh table table-striped custab table-hover">
+
+          <thead>
+            <tr>
+              <th>iD</th>
+              <th>Picture</th>
+              <th class="text-center">Nombre</th>
+              <th class="text-center">Edad</th>
+              <th class="text-center">Email</th>
+              <th class="text-center">Opciones</th>
+            </tr>
+          </thead>
+
+          <tr *ngFor="let worker of request; let i = index">
+            <td>{{worker.id}}</td>
+            <td><img class="w-ic"
+                src="../../assets/Page/574-5743937_workers-clipart-cement-worker-construction-worker-icon-png-removebg-preview.png"
+                alt=""></td>
+            <td>{{worker.name}}</td>
+            <td>{{worker.age}}</td>
+            <td>{{worker.email}}</td>
+            <td class="fila">
+              <Button (click)="loadWorker(worker)" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editModal">Edit</Button>
+              <button (click)="DeleteWorker(worker.id)" class="btn btn-danger btn-sm" data-toggle="modal"
+                data-target="#deleteModal">Delete</button>
+            </td>
+          </tr>
+
+        </table>
+
+      </div>
+    </div>
+
+    <!-- Pop up Editar -->
+    <div class="modal fade mt-5 pt-5" name="editModal" id="editModal" tabindex="-1" role="dialog"
+      aria-label="editModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h5 class="modal-title" id="editModalLabel">Edit Worker</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div class="container" [formGroup]="detailWorker" (ngSubmit)="PostWorker()" class="form">
+
+              <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" name="name" class="form-control" formControlName="name">
+              </div>
+
+              <div class="form-group">
+                <label>Edad</label>
+                <input type="text" name="age" class="form-control" formControlName="age">
+              </div>
+            
+              <div class="form-group">
+                <label>Email</label>
+                <input type="text" name="email" class="form-control" formControlName="email">
+              </div>
+            
+            </div>
+          </div>
+
+          <div class="modal-footer">
+
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" (click)="EditWorker()" class="btn btn-primary" data-dismiss="modal" >Save Changes</button>
+            
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #LandingPage>
+  <div class="container landing-page">
+    <div class="col-12 lp">
+      <div class="l-text col-md-6 mt-5">
+
+        <h2>Organiza, Crea y Toma Control de tus Trabajadores
+          en tu empresa desde la web.
+          <br>
+          Facil y Rapido.
+        </h2>
+        <p class="text">
+          Observa, Crea, Edita, Elimina tus listas de Trabajadores desde cualquier navageador web.
+        </p>
+
+        <button class="btn btn-primary btn-lg but">Empieza Ahora!</button>
+        <button class="ml-2 btn btn-info btn-lg but">Inicia Sesion!</button>
+
+      </div>
+
+      <div class="r-img ml-5 col-md-6">
+        <img src="../../assets/Page/promo-figure-alt.svg" alt="">
+      </div>
+
+    </div>
+  </div>
+</ng-template>
