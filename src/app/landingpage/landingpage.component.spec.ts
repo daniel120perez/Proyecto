@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LandingpageComponent } from './landingpage.component';
+import { LandingpageComponent } from './landing.page.component';
 
-describe('LandingpageComponent', () => {
+describe('Landingpage.Component', () => {
   let component: LandingpageComponent;
   let fixture: ComponentFixture<LandingpageComponent>;
 
